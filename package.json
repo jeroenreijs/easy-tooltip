@@ -1,6 +1,6 @@
 {
   "name": "easy-tooltip",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tooltips with just some HTML, Javascript and CSS. Easy to customize",
   "module": "dist/easy-tooltip.esm.min.js",
   "browser": "dist/easy-tooltip.umd.min.js",
@@ -22,6 +22,7 @@
     "tooltips"
   ],
   "author": "Jeroen Reijs",
+  "repository": "https://github.com/jeroenreijs/easy-tooltip",
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.0",
