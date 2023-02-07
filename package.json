@@ -1,0 +1,32 @@
+{
+  "name": "easy-tooltip",
+  "version": "0.1.0",
+  "description": "Tooltips with just some HTML, Javascript and CSS. Easy to customize",
+  "module": "dist/easy-tooltip.esm.min.js",
+  "browser": "dist/easy-tooltip.umd.min.js",
+  "main": "dist/easy-tooltip.esm.min.js",
+  "directories": {
+    "example": "example"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
+  },
+  "keywords": [
+    "HTML",
+    "Javascript",
+    "CSS",
+    "tooltips"
+  ],
+  "author": "Jeroen Reijs",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.0",
+    "rollup": "^2.79.1",
+    "rollup-plugin-scss": "^4.0.0",
+    "sass": "^1.58.0"
+  }
+}
