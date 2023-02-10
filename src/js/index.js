@@ -194,9 +194,14 @@ function easyTooltip() {
       tipBgColor,
       tipTextColor,
       tipMaxWidth,
+      animated = false,
     } = e.target.dataset;
+    const isAnimated = Boolean(animated);
     const tooltip = document.createElement('div');
     tooltip.classList.add('tooltip');
+    if (isAnimated) {
+      tooltip.classList.add('animated');
+    }
     if (tipPosition) {
       tooltip.classList.add(`tip-position-${tipPosition}`);
     }
@@ -252,12 +257,29 @@ function easyTooltip() {
       });
     tooltip.style.setProperty('--position-top', topPositionWithCorrection);
     tooltip.style.setProperty('--position-left', leftPositionWithCorrection);
+    if (isAnimated) {
+      setTimeout(() => {
+        tooltip.classList.add('show');
+      }, 0);
+    }
   };
 
   // function that removes the tooltip from the DOM
-  const hideTooltip = (e) => {
+  const hideTooltip = () => {
     const tooltips = document.querySelectorAll('.tooltip');
-    tooltips.forEach((tooltip) => tooltip.remove());
+    tooltips.forEach((tooltip) => {
+      if (
+        tooltip.classList.contains('animated') &&
+        tooltip.classList.contains('show')
+      ) {
+        tooltip.classList.remove('show');
+        setTimeout(() => {
+          tooltip.remove();
+        }, 300);
+      } else {
+        tooltip.remove();
+      }
+    });
   };
 
   // add event handlers for all found tooltips

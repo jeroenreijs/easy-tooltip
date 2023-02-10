@@ -1,6 +1,6 @@
 {
   "name": "easy-tooltip",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Tooltips with just some HTML, Javascript and CSS. Easy to customize",
   "module": "dist/easy-tooltip.esm.min.js",
   "browser": "dist/easy-tooltip.umd.min.js",

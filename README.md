@@ -1,6 +1,9 @@
 # easy-tooltip
 
 Very easy to use tooltip. Highly customisable.
+There are a lot of pretty complex tooltip libraries.
+In my opinion tooltips shouldn't be more than a little DOM change.
+Let me know if there is anything you miss, or when you run into issues.
 
 ## Properties
 
@@ -10,6 +13,7 @@ Very easy to use tooltip. Highly customisable.
 - `backgroundColor`: any web color, default `#000000bd`
 - `textColor`: any web color, default `#ffffff`
 - `maxWidth`: parent | length | percentage, default `none`
+- `animated`: boolean, default `false`
 
 ## How to use
 
@@ -31,6 +35,7 @@ Other data attributes:
 - `data-tip-bg-color`
 - `data-tip-text-color`
 - `data-tip-max-width`
+- `data-animated`
 
 Only one required is of course `data-tip`. All others are optional to add styling of your choice.
 
