@@ -1,8 +1,6 @@
 import '../styles/main.scss';
 
 function easyTooltip() {
-  const tips = document.querySelectorAll('[data-tip]');
-
   // function that returns the top (y) and left (x) position based on a given tooltip position (top, left, right, bottom)
   const setPosition = ({
     width,
@@ -282,9 +280,31 @@ function easyTooltip() {
     });
   };
 
-  // add event handlers for all found tooltips
-  tips.forEach((tip) => tip.addEventListener('mouseenter', showTooltip));
-  tips.forEach((tip) => tip.addEventListener('mouseleave', hideTooltip));
+  function isElement(obj) {
+    return typeof HTMLElement === 'object'
+      ? obj instanceof HTMLElement //DOM2
+      : obj &&
+          typeof obj === 'object' &&
+          obj !== null &&
+          obj.nodeType === 1 &&
+          typeof obj.nodeName === 'string';
+  }
+
+  const handleMouseEnter = (e) => {
+    if (isElement(e.target) && e.target.hasAttribute('data-tip')) {
+      showTooltip(e);
+    }
+  };
+
+  const handleMouseLeave = (e) => {
+    if (isElement(e.target) && e.target.hasAttribute('data-tip')) {
+      hideTooltip(e);
+    }
+  };
+
+  // add event handlers for all found tooltips (use event delegation for dynamically added content)
+  document.body.addEventListener('mouseenter', handleMouseEnter, true);
+  document.body.addEventListener('mouseleave', handleMouseLeave, true);
 }
 
 export default easyTooltip;

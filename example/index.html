@@ -51,7 +51,7 @@ Tooltip with properties:
             accumsan nec, euismod eu leo. Vivamus convallis lectus ac metus
             sollicitudin,
             <span data-tip="Hello world from right" data-tip-position="right"
-              >sit amet</span
+              >sit <strong>amet</strong></span
             >
             tristique metus efficitur.
           </p>
@@ -331,11 +331,34 @@ Tooltip with properties:
             dolor. Fusce laoreet varius turpis facilisis maximus.
           </p>
         </div>
+        <button id="btnShowMore">Show some more HTML</button>
       </div>
     </div>
     <script src="../dist/easy-tooltip.umd.min.js"></script>
     <script>
       window.easyTooltip();
+
+      const showMoreHTML = () => {
+        const elem = document.querySelector('#lipsum2');
+        const newParagraph = document.createElement('p');
+        newParagraph.innerHTML = `Aenean velit augue, tristique ut quam in, tempus molestie mi. Sed
+            risus odio, vehicula et orci eget, bibendum dignissim orci. Aliquam
+            erat volutpat. Ut
+            <span
+              data-tip="Hello world from right"
+              data-tip-position="right"
+              data-tip-arrow-position="center"
+              data-tip-bg-color="red"
+              data-tip-text-color="black"
+              >porta</span
+            >
+            euismod consequat.`;
+        elem.appendChild(newParagraph);
+      };
+
+      const btnShowMore = document.querySelector('#btnShowMore');
+
+      btnShowMore.addEventListener('click', showMoreHTML);
     </script>
   </body>
 </html>
